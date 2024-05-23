@@ -1,0 +1,13 @@
+<div id="app">
+  <h2>{{massage}}</h2>
+</div>
+<script type="text/javaScript" src="https://unpkg.com/vue"></script>
+<script type="text/javaScript">
+  var model = {massage : 'Hello Vue3!'};
+  var vm = Vue.createApp({
+      name: 'App',
+      data(){
+          return model;
+      },
+  }).mount('#app')
+</script>
