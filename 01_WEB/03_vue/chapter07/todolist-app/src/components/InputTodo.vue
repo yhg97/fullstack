@@ -1,48 +1,38 @@
 <template>
-  <div class="input-todo">
-    <input
-      v-model="newTodo"
-      @keyup.enter="submitTodo"
-      placeholder="새 할 일을 입력하세요"
-    />
-    <button @click="submitTodo">추가</button>
+  <div class="row mb-3">
+    <div class="col">
+      <div class="input-group">
+        <input
+          id="msg"
+          type="text"
+          class="form-control"
+          name="msg"
+          placeholder="할일을 여기에 입력!"
+          v-model.trim="todo"
+          @keyup.enter="addTodoHandler"
+        />
+        <span class="btn btn-primary input-group-addon" @click="addTodoHandler"
+          >추가</span
+        >
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'InputTodo',
-  data() {
-    return {
-      newTodo: '',
-    };
-  },
-  methods: {
-    submitTodo() {
-      if (this.newTodo.trim() !== '') {
-        this.$emit('add-todo', this.newTodo);
-        this.newTodo = '';
+  setup() {
+    const addTodoHandler = () => {
+      if (state.todo.length >= 3) {
+        state.emitter.emit('add-todo', state.todo);
+        state.todo = '';
       }
-    },
+    };
+    // data() {
+    //   return { todo: '' };
+    // },
+    return { addTodoHandler };
   },
 };
 </script>
-
-<style scoped>
-.input-todo {
-  display: flex;
-  gap: 10px;
-}
-
-.input-todo input {
-  flex: 1;
-  padding: 8px;
-  font-size: 16px;
-}
-
-.input-todo button {
-  padding: 8px 12px;
-  font-size: 16px;
-  cursor: pointer;
-}
-</style>
