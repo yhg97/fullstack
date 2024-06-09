@@ -1,0 +1,37 @@
+{
+  "property": [
+    {
+      "id": "1d6f",
+      "date": "2024-06-13T11:39:00.000Z"
+    }
+  ],
+  "budget": [
+    {
+      "id": "1501",
+      "date": "2024-06-06T12:57:00.000Z",
+      "type": "income",
+      "category": "One",
+      "detailCategory": "123",
+      "amount": 123,
+      "memo": "123"
+    }
+  ],
+  "incomeCategory": [
+    {
+      "id": "1d6f",
+      "date": "2024-06-13T11:39:00.000Z"
+    }
+  ],
+  "expenseCategory": [
+    {
+      "id": "1d6f",
+      "date": "2024-06-13T11:39:00.000Z"
+    }
+  ],
+  "periodicExpense": [
+    {
+      "id": "1d6f",
+      "date": "2024-06-13T11:39:00.000Z"
+    }
+  ]
+}
