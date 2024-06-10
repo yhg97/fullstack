@@ -7,31 +7,184 @@
   ],
   "budget": [
     {
-      "id": "1501",
-      "date": "2024-06-06T12:57:00.000Z",
-      "type": "income",
-      "category": "One",
-      "detailCategory": "123",
-      "amount": 123,
+      "id": "9942",
+      "date": "2024-06-10T05:03:10.607Z",
+      "type": "",
+      "category": "",
+      "detailCategory": "",
+      "amount": 0,
+      "memo": ""
+    },
+    {
+      "id": "ba9f",
+      "date": "2024-06-10T05:12:10.629Z",
+      "type": "수입",
+      "category": "월급",
+      "detailCategory": "ㅁㄴㅇ",
+      "amount": 1000,
       "memo": "123"
+    },
+    {
+      "id": "27bb",
+      "date": "2024-06-10T05:18:18.702Z",
+      "type": "지출",
+      "category": "주거",
+      "detailCategory": "123",
+      "amount": 100001,
+      "memo": "123"
+    },
+    {
+      "id": "6701",
+      "date": "2024-06-01T05:20:00.000Z",
+      "type": "지출",
+      "category": "세금",
+      "detailCategory": "123",
+      "amount": 111111,
+      "memo": "123123"
+    },
+    {
+      "id": "9dba",
+      "date": "2024-06-06T06:34:00.000Z",
+      "type": "수입",
+      "category": "월급",
+      "detailCategory": "123",
+      "amount": 11111,
+      "memo": "123"
+    },
+    {
+      "id": "1af4",
+      "date": "2024-06-07T06:50:00.000Z",
+      "type": "지출",
+      "category": "세금",
+      "detailCategory": "123",
+      "amount": 111111,
+      "memo": "123"
+    },
+    {
+      "id": "f338",
+      "date": "2024-06-10T06:56:00.574Z",
+      "type": "수입",
+      "category": "이자",
+      "detailCategory": "123",
+      "amount": 100000,
+      "memo": "4444"
+    },
+    {
+      "id": "5ee6",
+      "date": "2024-06-01T06:56:00.000Z",
+      "type": "수입",
+      "category": "이자",
+      "detailCategory": "2ㅂㅈ",
+      "amount": 10000,
+      "memo": "44"
+    },
+    {
+      "id": "a0cd",
+      "date": "2024-06-08T06:58:00.000Z",
+      "type": "수입",
+      "category": "차입",
+      "detailCategory": "123",
+      "amount": 111111,
+      "memo": "123"
+    },
+    {
+      "id": "3c98",
+      "date": "2024-06-05T07:12:00.000Z",
+      "type": "수입",
+      "category": "이자",
+      "detailCategory": "123",
+      "amount": 11111,
+      "memo": "123"
+    },
+    {
+      "id": "c836",
+      "date": "2024-06-06T08:03:00.000Z",
+      "type": "수입",
+      "category": "월급",
+      "detailCategory": "",
+      "amount": 123123,
+      "memo": ""
+    },
+    {
+      "id": "f44f",
+      "date": "2024-06-04T08:34:00.000Z",
+      "type": "수입",
+      "category": "월급",
+      "detailCategory": "123",
+      "amount": 11111,
+      "memo": "123"
+    },
+    {
+      "id": "252f",
+      "date": "2024-06-06T08:37:00.000Z",
+      "type": "수입",
+      "category": "월급",
+      "detailCategory": "444",
+      "amount": 123123,
+      "memo": "1123"
     }
   ],
   "incomeCategory": [
     {
-      "id": "1d6f",
-      "date": "2024-06-13T11:39:00.000Z"
+      "id": "1",
+      "category": "월급"
+    },
+    {
+      "id": "2",
+      "category": "이자"
+    },
+    {
+      "id": "3",
+      "category": "차입"
     }
   ],
   "expenseCategory": [
     {
-      "id": "1d6f",
-      "date": "2024-06-13T11:39:00.000Z"
+      "id": "1",
+      "category": "세금"
+    },
+    {
+      "id": "2",
+      "category": "식비"
+    },
+    {
+      "id": "3",
+      "category": "주거"
+    },
+    {
+      "id": "4",
+      "category": "광열"
+    },
+    {
+      "id": "5",
+      "category": "보건"
+    },
+    {
+      "id": "6",
+      "category": "오락"
+    },
+    {
+      "id": "7",
+      "category": "교통"
+    },
+    {
+      "id": "8",
+      "category": "통신"
     }
   ],
   "periodicExpense": [
     {
       "id": "1d6f",
       "date": "2024-06-13T11:39:00.000Z"
+    }
+  ],
+  "profile": [
+    {
+      "id": "1d6f",
+      "date": "2024-06-13T11:39:00.000Z",
+      "name": "",
+      "phone": "",
+      "nickname": ""
     }
   ]
 }
