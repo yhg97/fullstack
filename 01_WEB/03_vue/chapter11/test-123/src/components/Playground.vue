@@ -62,6 +62,7 @@
         @keyup.enter="checkMemoField"
       />
       <button type="submit">저장</button>
+      <button type="button" @click="cancelForm">취소</button>
     </form>
 
     <!-- 저장 완료 알림 메시지 -->
@@ -131,6 +132,17 @@ const submitForm = () => {
   };
   dateStore.addBudgetItem(budgetItem);
   isSaved.value = true;
+};
+
+const cancelForm = () => {
+  date.value = new Date();
+  type.value = '';
+  category.value = '';
+  detailCategory.value = '';
+  formattedAmount.value = '';
+  amount.value = 0;
+  memo.value = '';
+  isSaved.value = false;
 };
 
 const checkMemoField = (event) => {
