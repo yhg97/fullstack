@@ -1,60 +1,60 @@
 <template>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid d-flex">
-      <!-- 왼쪽 네비게이션 바 토글 버튼 및 링크 -->
-      <div class="d-flex flex-grow-1" style="flex-basis: 33%">
-        <button
-          class="navbar-toggler"
-          type="button"
-          @click="isNavShow = !isNavShow"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div :class="['collapse', 'navbar-collapse', { show: isNavShow }]">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <router-link class="nav-link" to="/"> 홈 </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/history">
-                거래내역
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/modification">
-                입력
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/setting">
-                프로필설정
-              </router-link>
-            </li>
-          </ul>
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <img src="../image/pig.png" alt="" class="img-fluid rounded-circle" />
+        <h1 class="text-light"><router-link to="/">Alex Smith</router-link></h1>
+        <div class="social-links mt-3 text-center">
+          <div>
+            <a
+              class="text-white"
+              href="https://github.com/jhchoi1104/Account_book_KB"
+              target="_blank"
+              style="font-size: 24px"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
         </div>
       </div>
-      <!-- 중앙 브랜드 이름 -->
-      <div class="navbar-brand text-center flex-grow-1" style="flex-basis: 33%">
-        <router-link
-          class="text-decoration-none"
-          to="/"
-          style="
-            font-family: 'Arial', sans-serif;
-            font-size: 18px;
-            color: rgb(9, 155, 99);
-          "
-        >
-          순다르 피차이
-        </router-link>
-      </div>
-      <!-- 오른쪽 빈칸 -->
-      <div class="flex-grow-1" style="flex-basis: 33%"></div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li>
+            <router-link to="/" class="nav-link scrollto active"
+              ><i class="bx bx-home"></i> <span>Home</span></router-link
+            >
+          </li>
+          <li>
+            <router-link to="/history" class="nav-link scrollto"
+              ><i class="bx bx-user"></i> <span>내역</span></router-link
+            >
+          </li>
+          <li>
+            <router-link to="/Modification" class="nav-link scrollto"
+              ><i class="bx bx-file-blank"></i> <span>입력</span></router-link
+            >
+          </li>
+          <li>
+            <router-link to="/setting" class="nav-link scrollto"
+              ><i class="bx bx-book-content"></i>
+              <span>프로필설정</span></router-link
+            >
+          </li>
+        </ul>
+      </nav>
+      <!-- .nav-menu -->
     </div>
-  </nav>
+  </header>
+  <!-- End Header -->
 </template>
 
-<script setup>
-import { ref } from 'vue';
-
-const isNavShow = ref(false);
+<script>
+export default {
+  name: 'Header',
+};
 </script>
+
+<style scoped>
+/* 스타일 추가 (기본적으로 필요한 경우) */
+</style>

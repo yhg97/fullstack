@@ -10,9 +10,20 @@
       <div v-else>
         <div v-for="(item, index) in filteredItems" :key="index">
           <p>날짜: {{ item.date }}</p>
-          <p>타입: {{ item.type }}</p>
-          <p>카테고리: {{ item.category }}</p>
-          <p>금액: {{ item.amount }}</p>
+          <p v-if="item.isEditing">타입: <input v-model="item.editedType" /></p>
+          <p v-else>타입: {{ item.type }}</p>
+          <p v-if="item.isEditing">
+            카테고리: <input v-model="item.editedCategory" />
+          </p>
+          <p v-else>카테고리: {{ item.category }}</p>
+          <p v-if="item.isEditing">
+            금액: <input v-model="item.editedAmount" />
+          </p>
+          <p v-else>금액: {{ item.amount }}</p>
+          <button v-if="item.isEditing" @click="cancelEdit(item)">
+            수정 취소
+          </button>
+          <button v-else @click="startEditing(item)">수정</button>
         </div>
       </div>
     </div>
@@ -39,6 +50,7 @@ const fetchItems = async () => {
   try {
     isLoading.value = true;
     await store.fetchData();
+    initializeEditedItems();
   } catch (err) {
     error.value = err.message;
   } finally {
@@ -46,11 +58,31 @@ const fetchItems = async () => {
   }
 };
 
+const initializeEditedItems = () => {
+  store.items.forEach((item) => {
+    item.isEditing = false;
+    item.editedType = item.type;
+    item.editedCategory = item.category;
+    item.editedAmount = item.amount;
+  });
+};
+
 const filteredItems = computed(() => {
   if (!selectedDate.value) return [];
   const selectedDateString = selectedDate.value.toISOString().split('T')[0];
   return store.items.filter((item) => item.date.startsWith(selectedDateString));
 });
+
+const startEditing = (item) => {
+  item.isEditing = true;
+};
+
+const cancelEdit = (item) => {
+  item.isEditing = false;
+  item.editedType = item.type;
+  item.editedCategory = item.category;
+  item.editedAmount = item.amount;
+};
 
 onMounted(() => {
   fetchItems();

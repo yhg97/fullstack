@@ -14,7 +14,7 @@
           id="inputGroupSelect02"
           required
         >
-          <option value="" disabled>수입,지출</option>
+          <option value="" disabled>수입, 지출</option>
           <option value="수입">수입</option>
           <option value="지출">지출</option>
         </select>
@@ -95,18 +95,12 @@ const memo = ref('');
 const formattedAmount = ref('');
 const isSaved = ref(false);
 
+const filteredCategories = computed(() => {
+  return categoryStore.filteredCategories;
+});
+
 onMounted(() => {
   categoryStore.fetchCategories();
-});
-const handleInternal = (date) => {
-  // Do something
-  alert(`Current selection - ${date}`);
-};
-
-const filteredCategories = computed(() => {
-  return type.value === '수입'
-    ? categoryStore.incomeCategory
-    : categoryStore.expenseCategory;
 });
 
 const formatAmount = () => {
@@ -163,7 +157,6 @@ watch(type, (newValue) => {
 </script>
 
 <style scoped>
-/* 스타일 추가 (기본적으로 필요한 경우) */
 .input-group-text {
   background-color: #f8f9fa;
   border: 1px solid #ced4da;
