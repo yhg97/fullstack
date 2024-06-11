@@ -14,4 +14,13 @@ import Header from './components/Header.vue';
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+ @media (min-width: 1199px){
+  .wrepper{
+    display: flex;
+  }
+
+  .abc{
+    padding-left:  300px;
+  }}
+</style>

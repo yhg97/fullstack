@@ -45,6 +45,7 @@
       </nav>
       <!-- .nav-menu -->
     </div>
+    
   </header>
   <!-- End Header -->
 </template>

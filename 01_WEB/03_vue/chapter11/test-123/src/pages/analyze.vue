@@ -11,7 +11,4 @@
   </script>
   
   <style scoped>
-  .container {
-    height: 100%; /* 전체 높이를 화면의 높이로 설정 */
-  }
   </style>

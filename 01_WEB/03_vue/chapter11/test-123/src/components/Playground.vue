@@ -169,10 +169,18 @@ watch(type, (newValue) => {
 </script>
 
 <style scoped>
+/* 추가된 스타일 */
+.container {
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  height: 100vh; /* 화면 전체 높이 */
+}
+
+/* 기존 스타일 */
 .input-group-text {
   background-color: #f8f9fa;
   border: 1px solid #ced4da;
-  border-left: 0;
 }
 
 .input-group.mb-3 {
@@ -193,3 +201,4 @@ watch(type, (newValue) => {
   align-items: center;
 }
 </style>
+
