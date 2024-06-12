@@ -1,6 +1,9 @@
 <template>
-  <div class="container align-items-center col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-    <div class="d-flex ">
+  <div
+    class="container align-items-center col-lg-8 pt-4 pt-lg-0 content"
+    data-aos="fade-left"
+  >
+    <div class="d-flex">
       <div class="p-2" style="flex: 1; text-align: center; border: 1px solid">
         거래 내역
       </div>
@@ -10,6 +13,4 @@
 
 <script></script>
 
-<style scoped>
- 
-</style>
+<style scoped></style>

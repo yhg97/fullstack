@@ -1,21 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/pages/Home.vue';
-import History from '@/pages/history.vue';
-import Setting from '@/pages/Setting.vue'
-import Modification from '@/pages/Modification.vue'
+import Calender from '@/pages/Calender.vue';
+import Main from '@/pages/Main.vue';
+import Setting from '@/pages/Setting.vue';
+import Modification from '@/pages/Modification.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'main',
+      component: Main,
     },
     {
-      path: '/history',
-      name: 'history',
-      component: History,
+      path: '/calender',
+      name: 'calender',
+      component: Calender,
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: Home,
     },
     {
       path: '/modification',

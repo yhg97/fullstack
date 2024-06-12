@@ -146,7 +146,7 @@ const checkMemoField = (event) => {
 };
 
 const goToHomePage = () => {
-  router.push('/');
+  router.push('/home');
 };
 
 watch(type, (newValue) => {
@@ -201,4 +201,3 @@ watch(type, (newValue) => {
   align-items: center;
 }
 </style>
-
