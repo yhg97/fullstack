@@ -1,29 +1,33 @@
 <template>
-  <div>
-    <form @submit.prevent="submitForm">
-      <VueDatePicker
-        v-model="date"
-        :enable-time-picker="false"
-        locale="ko"
-        :autoclose="false"
-      />
-      <div class="input-group mb-3">
-        <select
-          v-model="type"
-          class="form-select"
-          id="inputGroupSelect02"
-          required
-        >
+  <div class="time">
+    <form @submit.prevent="submitForm" class="p-3 bg-light rounded">
+      <div class="mb-3">
+        <label for="datePicker" class="form-label">날짜</label>
+        <VueDatePicker
+          v-model="date"
+          :enable-time-picker="false"
+          locale="ko"
+          :autoclose="false"
+          id="datePicker"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="typeSelect" class="form-label">유형</label>
+        <select v-model="type" class="form-select" id="typeSelect" required>
           <option value="" disabled>수입, 지출</option>
           <option value="수입">수입</option>
           <option value="지출">지출</option>
         </select>
       </div>
-      <div class="input-group mb-3">
+
+      <div class="mb-3">
+        <label for="categorySelect" class="form-label">카테고리</label>
         <select
           v-model="category"
           class="form-select"
-          id="inputGroupSelect02"
+          id="categorySelect"
           required
         >
           <option value="" disabled>카테고리</option>
@@ -36,37 +40,57 @@
           </option>
         </select>
       </div>
-      <input
-        class="input-group mb-3"
-        v-model="detailCategory"
-        placeholder="자세한 내용"
-      />
-      <div class="input-group mb-3">
+
+      <div class="mb-3">
+        <label for="detailCategoryInput" class="form-label">자세한 내용</label>
         <input
-          v-model="formattedAmount"
-          @input="formatAmount"
-          @focus="unformatAmount"
-          @blur="formatAmount"
           class="form-control"
-          type="text"
-          placeholder="금액"
-          required
+          id="detailCategoryInput"
+          v-model="detailCategory"
+          placeholder="자세한 내용"
         />
-        <span class="input-group-text">원</span>
       </div>
-      <input
-        class="input-group mb-3"
-        v-model="memo"
-        type="text"
-        placeholder="메모"
-        @keyup.enter="checkMemoField"
-      />
-      <button type="submit">저장</button>
-      <button type="button" @click="cancelForm">취소</button>
+
+      <div class="mb-3">
+        <label for="amountInput" class="form-label">금액</label>
+        <div class="input-group">
+          <input
+            v-model="formattedAmount"
+            @input="formatAmount"
+            @focus="unformatAmount"
+            @blur="formatAmount"
+            class="form-control"
+            type="text"
+            placeholder="금액"
+            id="amountInput"
+            required
+          />
+          <span class="input-group-text">원</span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="memoInput" class="form-label">메모</label>
+        <input
+          class="form-control"
+          v-model="memo"
+          type="text"
+          placeholder="메모"
+          @keyup.enter="checkMemoField"
+          id="memoInput"
+        />
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">저장</button>
+        <button type="button" @click="cancelForm" class="btn btn-secondary">
+          취소
+        </button>
+      </div>
     </form>
 
     <!-- 저장 완료 알림 메시지 -->
-    <div v-if="isSaved" class="alert alert-success" role="alert">
+    <div v-if="isSaved" class="alert alert-success mt-3" role="alert">
       저장이 완료되었습니다.
       <button @click="goToHomePage" type="button" class="btn btn-primary">
         확인
@@ -169,35 +193,39 @@ watch(type, (newValue) => {
 </script>
 
 <style scoped>
-/* 추가된 스타일 */
-.container {
-  display: flex;
+.time {
+  width: 500px;
   justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center; /* 수직 가운데 정렬 */
-  height: 100vh; /* 화면 전체 높이 */
+  align-items: center; /*수직 가운데 정렬*/
+  height: 100px;
+  /* background: linear-gradient(to right, #ff7e5f, #feb47b);  */
 }
 
-/* 기존 스타일 */
-.input-group-text {
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
+.bg-light {
+  background-color: #f8f9fa !important;
 }
 
-.input-group.mb-3 {
-  position: relative;
+.rounded {
+  border-radius: 0.25rem !important;
 }
 
-.input-group.mb-3 input.form-control {
-  text-align: right;
-  padding-right: 3rem;
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
-.input-group.mb-3 .input-group-text {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
 }
 </style>

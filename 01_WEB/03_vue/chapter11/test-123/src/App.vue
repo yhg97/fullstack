@@ -21,7 +21,6 @@ const isHomePage = router.currentRoute.value.path === '/';
 <style scoped>
 @media (min-width: 1199px) {
   .wrapper {
-    display: flex;
     padding-left: 300px;
     padding-top: 40px;
     background: rgb(198, 246, 255);
@@ -30,6 +29,12 @@ const isHomePage = router.currentRoute.value.path === '/';
       rgb(50, 224, 255),
       rgb(198, 246, 255)
     );*/
+  }
+}
+@media (max-width: 1199px) {
+  .wrapper {
+    padding-top: 40px;
+    background: rgb(198, 246, 255);
   }
 }
 </style>

@@ -94,4 +94,7 @@ const handleSubmit = async () => {
   ); /* 예시 그라데이션 색상 */
   padding: 20px;
 }
+/* .card-heading .card-heading1 {
+  width: 400px;
+} */
 </style>
