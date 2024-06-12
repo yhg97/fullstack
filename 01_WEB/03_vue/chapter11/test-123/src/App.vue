@@ -29,12 +29,7 @@ const isHomePage = router.currentRoute.value.path === '/';
       /* to right,
       rgb(50, 224, 255),
       rgb(198, 246, 255)
-    );*/x
-  }
-
-  .abc {
-    /* '/경로' 에서는 padding-left: 0; */
-    padding-left: var(--padding-left, 300px);
+    );*/
   }
 }
 </style>
