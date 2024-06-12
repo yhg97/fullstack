@@ -1,10 +1,10 @@
 <template>
-  <div id="aaa">
+  <div class="container" style="padding-top: 50px">
     <Header v-if="showHeader" />
-    <div class="wrapper wrapper--w780">
+    <div class="wrapper">
       <div class="card card-3">
         <div class="card-heading"></div>
-        <div class="card-body" style="width: 800px">
+        <div class="card-body">
           <h2 class="title">간단 프로필 설정</h2>
           <form @submit.prevent="handleSubmit">
             <div class="input-group">
@@ -86,15 +86,7 @@ const handleSubmit = async () => {
 </script>
 
 <style scoped>
-.aaa {
-  background: linear-gradient(
-    to right,
-    #ff7e5f,
-    #feb47b
-  ); /* 예시 그라데이션 색상 */
-  padding: 20px;
+.container {
+  width: 1000px;
 }
-/* .card-heading .card-heading1 {
-  width: 400px;
-} */
 </style>

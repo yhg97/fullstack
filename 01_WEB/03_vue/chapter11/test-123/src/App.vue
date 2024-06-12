@@ -22,7 +22,7 @@ const isHomePage = router.currentRoute.value.path === '/';
 @media (min-width: 1199px) {
   .wrapper {
     padding-left: 300px;
-    padding-top: 40px;
+
     background: rgb(198, 246, 255);
     /* linear-gradient(
       /* to right,

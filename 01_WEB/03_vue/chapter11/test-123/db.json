@@ -14,6 +14,15 @@
       "detailCategory": "123",
       "amount": 100000,
       "memo": "12344"
+    },
+    {
+      "id": "c6c3",
+      "date": "2024-06-06T09:41:00.000Z",
+      "type": "수입",
+      "category": "이자",
+      "detailCategory": "123",
+      "amount": 10000,
+      "memo": "123123123"
     }
   ],
   "incomeCategory": [
