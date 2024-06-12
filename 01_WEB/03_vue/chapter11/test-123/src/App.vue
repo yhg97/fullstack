@@ -24,11 +24,12 @@ const isHomePage = router.currentRoute.value.path === '/';
     display: flex;
     padding-left: 300px;
     padding-top: 40px;
-    background: linear-gradient(
-      to right,
-      #ff7e5f,
-      #feb47b
-    ); /* 예시 그라데이션 색상 */
+    background: rgb(198, 246, 255);
+    /* linear-gradient(
+      /* to right,
+      rgb(50, 224, 255),
+      rgb(198, 246, 255)
+    );*/x
   }
 
   .abc {

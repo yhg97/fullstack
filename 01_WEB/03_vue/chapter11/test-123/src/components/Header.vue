@@ -3,7 +3,7 @@
     <div class="d-flex flex-column">
       <div class="profile">
         <img src="../image/pig.png" alt="" class="img-fluid rounded-circle" />
-        <h1 class="text-light"><router-link to="/">Alex Smith</router-link></h1>
+        <h1 class="text-light"><router-link to="/">How Save?</router-link></h1>
         <div class="social-links mt-3 text-center">
           <div>
             <a
