@@ -16,21 +16,12 @@
       "memo": "12344"
     },
     {
-      "id": "c6c3",
-      "date": "2024-06-06T09:41:00.000Z",
+      "id": "c378",
+      "date": "2024-06-05",
       "type": "수입",
       "category": "이자",
       "detailCategory": "123",
-      "amount": 10000,
-      "memo": "123123123"
-    },
-    {
-      "id": "5878",
-      "date": "2024-06-13T00:20:05.694Z",
-      "type": "지출",
-      "category": "세금",
-      "detailCategory": "123",
-      "amount": 100000,
+      "amount": 1000001,
       "memo": "123"
     }
   ],
@@ -63,29 +54,25 @@
     },
     {
       "id": "4",
-      "category": "광열"
-    },
-    {
-      "id": "5",
       "category": "보건"
     },
     {
-      "id": "6",
+      "id": "5",
       "category": "오락"
     },
     {
-      "id": "7",
+      "id": "6",
       "category": "교통"
     },
     {
-      "id": "8",
+      "id": "7",
       "category": "통신"
     }
   ],
   "periodicExpense": [
     {
       "id": "1d6f",
-      "date": "2024-06-13T11:39:00.000Z"
+      "date": "2024-06-13"
     }
   ],
   "profile": [
@@ -93,7 +80,7 @@
       "date": "971208",
       "name": "유건희",
       "phone": "010-5564-5737",
-      "nickname": "ㅁㄴㅇ",
+      "nickname": "유건",
       "id": "1"
     }
   ]

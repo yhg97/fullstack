@@ -101,6 +101,7 @@
 
 <script setup>
 import { ref, onMounted, watchEffect } from 'vue';
+import { format } from 'date-fns'; // date-fns에서 format 함수 가져오기
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import { useRouter } from 'vue-router';
@@ -158,8 +159,10 @@ const unformatAmount = () => {
 };
 
 const submitForm = () => {
+  const formattedDate = format(new Date(date.value), 'yyyy-MM-dd'); // 날짜를 yyyy-MM-dd 형식으로 포맷팅
+
   const budgetItem = {
-    date: date.value,
+    date: formattedDate,
     type: type.value,
     category: category.value,
     detailCategory: detailCategory.value,
