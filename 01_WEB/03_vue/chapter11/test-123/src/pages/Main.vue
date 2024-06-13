@@ -13,6 +13,7 @@
                 type="text"
                 placeholder="이름"
                 v-model="profile.name"
+                required
               />
             </div>
             <div class="input-group">
@@ -30,7 +31,12 @@
                 type="text"
                 placeholder="휴대폰 번호"
                 v-model="profile.phone"
+                @input="validatePhoneNumber"
+                required
               />
+              <div v-if="!isPhoneNumberValid" class="text-danger">
+                - 입력 부탁드립니다
+              </div>
             </div>
             <div class="input-group">
               <input
@@ -38,11 +44,16 @@
                 type="text"
                 placeholder="닉네임"
                 v-model="profile.nickname"
+                required
               />
             </div>
 
             <div class="p-t-10">
-              <button class="btn btn--pill btn--green" type="submit">
+              <button
+                class="btn btn--pill btn--green"
+                type="submit"
+                :disabled="!isPhoneNumberValid"
+              >
                 저장
               </button>
             </div>
@@ -54,7 +65,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import Header from '../components/Header.vue';
 import { useRouter } from 'vue-router';
 import { useprofileStore } from '../stores/profileStore';
@@ -73,7 +84,16 @@ const profile = reactive({
 
 const showHeader = router.currentRoute.value.path !== '/';
 
+const isPhoneNumberValid = ref(true);
+
+const validatePhoneNumber = () => {
+  const phoneRegex = /^010-\d{4}-\d{4}$/;
+  isPhoneNumberValid.value = phoneRegex.test(profile.phone);
+};
+
 const handleSubmit = async () => {
+  if (!isPhoneNumberValid.value) return;
+
   const profileItem = {
     date: profile.date,
     name: profile.name,
@@ -88,5 +108,10 @@ const handleSubmit = async () => {
 <style scoped>
 .container {
   width: 1000px;
+}
+
+.text-danger {
+  color: red;
+  margin-top: 5px;
 }
 </style>

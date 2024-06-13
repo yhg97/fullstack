@@ -19,14 +19,20 @@ export const useCategoryStore = defineStore('categoryStore', () => {
   };
 
   // 게터
-  const filteredCategories = computed(() => {
-    return [...incomeCategory.value, ...expenseCategory.value];
-  });
+  const getFilteredCategories = (type) => {
+    if (type === '수입') {
+      return incomeCategory.value;
+    } else if (type === '지출') {
+      return expenseCategory.value;
+    } else {
+      return [];
+    }
+  };
 
   return {
     incomeCategory,
     expenseCategory,
-    filteredCategories,
     fetchCategories,
+    getFilteredCategories,
   };
 });

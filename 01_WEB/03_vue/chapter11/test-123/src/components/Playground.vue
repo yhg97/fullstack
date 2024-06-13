@@ -100,7 +100,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue';
+import { ref, onMounted, watchEffect } from 'vue';
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import { useRouter } from 'vue-router';
@@ -120,12 +120,30 @@ const memo = ref('');
 const formattedAmount = ref('');
 const isSaved = ref(false);
 
-const filteredCategories = computed(() => {
-  return categoryStore.filteredCategories;
-});
+const filteredCategories = ref([]);
 
 onMounted(() => {
   categoryStore.fetchCategories();
+});
+
+watchEffect(() => {
+  filteredCategories.value = categoryStore.getFilteredCategories(type.value);
+
+  if (type.value === '수입') {
+    const defaultIncomeCategory = categoryStore.incomeCategory.find(
+      (item) => item.category === '월급'
+    );
+    if (defaultIncomeCategory) {
+      category.value = defaultIncomeCategory.category;
+    }
+  } else if (type.value === '지출') {
+    const defaultExpenseCategory = categoryStore.expenseCategory.find(
+      (item) => item.category === '세금'
+    );
+    if (defaultExpenseCategory) {
+      category.value = defaultExpenseCategory.category;
+    }
+  }
 });
 
 const formatAmount = () => {
@@ -172,24 +190,6 @@ const checkMemoField = (event) => {
 const goToHomePage = () => {
   router.push('/home');
 };
-
-watch(type, (newValue) => {
-  if (newValue === '수입') {
-    const defaultIncomeCategory = categoryStore.incomeCategory.find(
-      (item) => item.category === '월급'
-    );
-    if (defaultIncomeCategory) {
-      category.value = defaultIncomeCategory.category;
-    }
-  } else if (newValue === '지출') {
-    const defaultExpenseCategory = categoryStore.expenseCategory.find(
-      (item) => item.category === '세금'
-    );
-    if (defaultExpenseCategory) {
-      category.value = defaultExpenseCategory.category;
-    }
-  }
-});
 </script>
 
 <style scoped>

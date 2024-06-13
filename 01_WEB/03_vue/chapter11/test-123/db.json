@@ -23,6 +23,15 @@
       "detailCategory": "123",
       "amount": 10000,
       "memo": "123123123"
+    },
+    {
+      "id": "5878",
+      "date": "2024-06-13T00:20:05.694Z",
+      "type": "지출",
+      "category": "세금",
+      "detailCategory": "123",
+      "amount": 100000,
+      "memo": "123"
     }
   ],
   "incomeCategory": [
@@ -81,10 +90,10 @@
   ],
   "profile": [
     {
-      "date": "",
-      "name": "",
-      "phone": "",
-      "nickname": "",
+      "date": "971208",
+      "name": "유건희",
+      "phone": "010-5564-5737",
+      "nickname": "ㅁㄴㅇ",
       "id": "1"
     }
   ]
