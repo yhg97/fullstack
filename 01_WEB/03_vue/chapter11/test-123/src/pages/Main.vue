@@ -20,8 +20,10 @@
               <input
                 class="input--style-3 js-datepicker"
                 type="text"
-                placeholder="생일"
+                placeholder="예)20001122"
                 v-model="profile.date"
+                @input="yyyymmdd"
+                required
               />
               <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
             </div>
@@ -89,6 +91,11 @@ const isPhoneNumberValid = ref(true);
 const validatePhoneNumber = () => {
   const phoneRegex = /^010-\d{4}-\d{4}$/;
   isPhoneNumberValid.value = phoneRegex.test(profile.phone);
+};
+
+const yyyymmdd = () => {
+  const yyyymmddRegex = /^\d{8}$/;
+  isyyyymmdd.value = yyyymmddRegex.test(date);
 };
 
 const handleSubmit = async () => {
