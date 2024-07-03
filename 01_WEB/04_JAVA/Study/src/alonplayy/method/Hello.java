@@ -1,8 +1,8 @@
 package alonplayy.method;
 
-public class PrintTemplate {
+public class Hello {
 
-  public void Hello(){
+  public static void hello(){
         System.out.println("Hello World");
   }
 }

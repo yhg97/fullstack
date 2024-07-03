@@ -1,8 +1,8 @@
 package codingtest;
-import java.util.*;
-public class Solution1 {
-    
-    public  int   solution1(int[] nums){
+
+public class Solution {
+
+    public  int   solution(int[] nums){
         int counter = 0;
 
         for (int i = 0; i <nums.length - 2; i++){
