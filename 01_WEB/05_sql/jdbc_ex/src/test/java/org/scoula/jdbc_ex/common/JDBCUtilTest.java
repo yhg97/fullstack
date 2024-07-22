@@ -3,6 +3,7 @@ package org.scoula.jdbc_ex.common;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
