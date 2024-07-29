@@ -1,6 +1,7 @@
 package org.scoula.ex02;
 
 import java.io.*;
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
@@ -21,7 +22,12 @@ public class HelloServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
     }
-
+    @Override
     public void destroy() {
+            System.out.println("destroy 호출");
     }
+//    @Override
+//    public void init() throws ServletException{
+//        System.out.println("init호출");
+//    }
 }
