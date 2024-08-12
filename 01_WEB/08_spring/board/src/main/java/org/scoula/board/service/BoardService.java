@@ -1,6 +1,6 @@
 package org.scoula.board.service;
 
-import org.scoula.dto.BoardDTO;
+import org.scoula.board.dto.BoardDTO;
 
 import java.util.List;
 

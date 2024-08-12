@@ -4,7 +4,7 @@ package org.scoula.board.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.scoula.board.mapper.BoardMapper;
-import org.scoula.dto.BoardDTO;
+import org.scoula.board.dto.BoardDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
