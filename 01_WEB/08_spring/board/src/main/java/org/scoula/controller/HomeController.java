@@ -14,6 +14,6 @@ public class HomeController {
         log.info("================> HomController /");
         return "index"; // View의 이름
 
-//        return "redirect:/board/list";
+
     }
 }

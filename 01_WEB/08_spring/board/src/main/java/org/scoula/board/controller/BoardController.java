@@ -1,60 +1,42 @@
 package org.scoula.board.controller;
 
+
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
-import org.scoula.board.service.BoardService;
+import lombok.extern.slf4j.Slf4j;
 import org.scoula.board.dto.BoardDTO;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.scoula.board.service.BoardService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@Log4j
-@RequestMapping("/board")
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/board")
 @RequiredArgsConstructor
+@Slf4j
 public class BoardController {
+    private final BoardService service;
 
-    final private BoardService service;
-
-    @GetMapping("/list")
-    public void list(Model model) {
-        log.info("list");
-        model.addAttribute("list", service.getList());
+    @GetMapping("")
+    public ResponseEntity<List<BoardDTO>> getList(){
+        return ResponseEntity.ok(service.getList());
     }
-
-    @GetMapping("/create")
-    public void create() {
-        log.info("create");
+    @GetMapping("/{no}")
+    public ResponseEntity<BoardDTO> get(@PathVariable Long no) {
+        return ResponseEntity.ok(service.get(no));
     }
-
-    @PostMapping("/create")
-    public String create(BoardDTO board){
-        log.info("create" + board);
-
-        service.create(board);
-
-        return "redirect:/board/list";
+    @PostMapping("")
+    public ResponseEntity<BoardDTO> create(@RequestBody BoardDTO board) {
+        return ResponseEntity.ok(service.create(board));
     }
-    @GetMapping({ "/get", "/update" })
-    public void get(@RequestParam("no") Long no, Model model) {
-        log.info("/get or update");
-        model.addAttribute("board", service.get(no));
+    @PutMapping("/{no}")
+    public ResponseEntity<BoardDTO> update(@PathVariable int no, @RequestBody BoardDTO board) {
+        return ResponseEntity.ok(service.update(board));
     }
-    @PostMapping("/update")
-    public String update(BoardDTO board) {
-        log.info("update:" + board);
-        service.update(board);
-        return "redirect:/board/list";
+    @DeleteMapping("/{no}")
+    public ResponseEntity<BoardDTO> delete(@PathVariable Long no) {
+        return ResponseEntity.ok(service.delete(no));
     }
-
-    @PostMapping("/delete")
-    public String delete(@RequestParam("no") Long no) {
-        log.info("delete..." + no);
-        service.delete(no);
-        return "redirect:/board/list";
-    }
-
 }
+
+
