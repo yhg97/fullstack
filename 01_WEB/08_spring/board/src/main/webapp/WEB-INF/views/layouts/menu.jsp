@@ -8,13 +8,13 @@
         <!-- 좌측 메뉴 구성 -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">메뉴1</a>
+                <a class="nav-link" href="#">게시판</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">메뉴2</a>
+                <a class="nav-link" href="#">로그인</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">메뉴3</a>
+                <a class="nav-link" href="http://localhost:8080/user/join">회원가입</a>
             </li>
         </ul>
         <!-- 우측 메뉴 -->

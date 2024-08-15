@@ -1,4 +1,4 @@
-package org.scoula.join.domain;
+package org.scoula.user.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class JoinVO {
+public class UserVO {
 
-        private Long id;
+        private String id;
         private String password;
         private String email;
         private String name;

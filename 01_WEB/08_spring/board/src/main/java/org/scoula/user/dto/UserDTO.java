@@ -1,19 +1,18 @@
-package org.scoula.join.dto;
+package org.scoula.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.scoula.board.domain.BoardVO;
-import org.scoula.board.dto.BoardDTO;
-import org.scoula.join.domain.JoinVO;
+import org.scoula.user.domain.UserVO;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class JoinDTO {
-    private Long id;
+public class UserDTO {
+    private String id;
     private String password;
     private String email;
     private String name;
@@ -21,8 +20,8 @@ public class JoinDTO {
     private String phone;
     private String gender;
 
-    public static JoinDTO of(JoinVO vo) {
-        return vo == null ? null : JoinDTO.builder()
+    public static UserDTO of(UserVO vo) {
+        return vo == null ? null : UserDTO.builder()
                 .id(vo.getId())
                 .password(vo.getPassword())
                 .email(vo.getEmail())
@@ -33,8 +32,8 @@ public class JoinDTO {
                 .build();
     }
 
-    public JoinVO toVo() {
-        return JoinVO.builder()
+    public UserVO toVo() {
+        return UserVO.builder()
                 .id(id)
                 .password(password)
                 .email(email)
@@ -45,3 +44,4 @@ public class JoinDTO {
                 .build();
     }
 }
+
