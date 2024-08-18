@@ -18,20 +18,24 @@ import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan(basePackages = {"org.scoula.board.service"})
-@PropertySource({"classpath:/application.properties"})
+@PropertySource("classpath:application.properties")
 @MapperScan(basePackages = {"org.scoula.board.mapper"})
 public class RootConfig {
+
     @Value("${jdbc.driver}")
-    String driver;
+    private String driver;
+
     @Value("${jdbc.url}")
-    String url;
+    private String url;
+
     @Value("${jdbc.username}")
-    String username;
+    private String username;
+
     @Value("${jdbc.password}")
-    String password;
+    private String password;
 
     @Autowired
-    ApplicationContext applicationContext;
+    private ApplicationContext applicationContext;
 
     @Bean
     public DataSource dataSource() {
@@ -40,22 +44,23 @@ public class RootConfig {
         config.setJdbcUrl(url);
         config.setUsername(username);
         config.setPassword(password);
-        HikariDataSource dataSource = new HikariDataSource(config);
-        return dataSource;
+        return new HikariDataSource(config);
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
-        sqlSessionFactory.setConfigLocation(
-                applicationContext.getResource("classpath:/mybatis-config.xml"));
-        sqlSessionFactory.setDataSource(dataSource());
-        return (SqlSessionFactory) sqlSessionFactory.getObject();
+    public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setConfigLocation(applicationContext.getResource("classpath:mybatis-config.xml"));
+        sqlSessionFactoryBean.setDataSource(dataSource);
+
+        // MyBatis 매퍼 파일들의 위치를 설정
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:mappers/**/*.xml"));
+
+        return sqlSessionFactoryBean.getObject();
     }
 
     @Bean
-    public DataSourceTransactionManager transactionManager() {
-        DataSourceTransactionManager manager = new DataSourceTransactionManager(dataSource());
-        return manager;
+    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
     }
 }
