@@ -3,22 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
+
+
 <configuration>
-    <!-- 설정 -->
     <settings>
-        <!-- 언더스코어로 구분된 이름을 카멜케이스로 자동 변환 -->
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="mapUnderscoreToCamelCase"  value="true"/>
     </settings>
-
-    <!-- Type Alias 설정 -->
+    
     <typeAliases>
-        <!-- 패키지 안의 모든 클래스에 대해 별칭을 설정 -->
         <package name="org.scoula.board.domain"/>
+        <package name="org.scoula.user.domain"/>
     </typeAliases>
-
-    <!-- 매퍼 XML 파일 등록 -->
-    <mappers>
-        <!-- 매퍼 XML 파일을 명시적으로 등록 -->
-        <mapper resource="org/scoula/board.mapper.BoardMapper.xml"/>
-    </mappers>
 </configuration>

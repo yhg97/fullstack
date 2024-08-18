@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd /mybatis-3-mapper.dtd">
+
+<mapper namespace="org.scoula.user.mapper.UserMapper">
+
+    <!-- 사용자 생성 -->
+    <insert id="create">
+        INSERT INTO users (id, password, email, name, birth, phone, gender)
+        VALUES (#{id}, #{password}, #{email}, #{name}, #{birth}, #{phone}, #{gender})
+    </insert>
+
+    <select id="existsById" resultType="boolean" parameterType="String">
+        SELECT COUNT(*) > 0
+        FROM users
+        WHERE id = #{id}
+    </select>
+
+    <!-- 사용자 조회
+    <select id="getUserById" parameterType="Long" resultType="org.scoula.join.dto.JoinDTO">
+        SELECT id, password, email, name, user_birth AS userBirth, phone, gender
+        FROM users
+        WHERE id = #{id}
+    </select>
+-->
+    <!-- 모든 사용자 조회
+    <select id="getAllUsers" resultType="org.scoula.join.dto.JoinDTO">
+        SELECT id, password, email, name, user_birth AS userBirth, phone, gender
+        FROM users
+    </select>
+    -->
+    <!-- 사용자 정보 업데이트
+    <update id="updateUser" parameterType="org.scoula.join.dto.JoinDTO">
+        UPDATE users
+        SET password = #{password},
+            email = #{email},
+            name = #{name},
+            user_birth = #{userBirth},
+            phone = #{phone},
+            gender = #{gender}
+        WHERE id = #{id}
+    </update>
+-->
+    <!-- 사용자 삭제
+    <delete id="deleteUser" parameterType="Long">
+        DELETE FROM users WHERE id = #{id}
+    </delete>
+ -->
+</mapper>
