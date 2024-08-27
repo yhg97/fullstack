@@ -16,6 +16,7 @@ public class MemberJoinDTO {
     String username;
     String password;
     String email;
+    String mbti;
 
     MultipartFile avatar;
 
@@ -24,6 +25,7 @@ public class MemberJoinDTO {
                 .username(username)
                 .password(password)
                 .email(email)
+                .mbti(mbti)
                 .build();
     }
 }

@@ -12,6 +12,7 @@ const member = reactive({
   email: 'hong@gmail.com',
   password: '12',
   password2: '12',
+  mbti: 'eeee',
   avatar: null,
 });
 
@@ -132,6 +133,19 @@ const join = async () => {
           placeholder="비밀번호 확인"
           id="password2"
           v-model="member.password2"
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="mbti" class="form-label">
+          <i class="fa-solid fa-envelope"></i>
+          mbti
+        </label>
+        <input
+          type="mbti"
+          class="form-control"
+          placeholder="eeee"
+          id="mbti"
+          v-model="member.mbti"
         />
       </div>
       <button

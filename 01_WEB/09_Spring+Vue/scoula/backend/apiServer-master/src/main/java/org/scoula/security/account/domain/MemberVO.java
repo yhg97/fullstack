@@ -17,6 +17,7 @@ public class MemberVO {
     private String username; // admin
     private String password; //
     private String email; //
+    private String mbti;
     private Date regDate;
     private Date updateDate;
 

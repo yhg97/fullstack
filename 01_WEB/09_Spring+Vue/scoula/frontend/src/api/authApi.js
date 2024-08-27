@@ -14,6 +14,7 @@ export default {
     formData.append('username', member.username);
     formData.append('email', member.email);
     formData.append('password', member.password);
+    formData.append('mbti', member.mbti);
     if (member.avatar) {
       formData.append('avatar', member.avatar);
     }

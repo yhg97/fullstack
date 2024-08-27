@@ -18,6 +18,7 @@ import java.util.List;
 public class MemberDTO {
     private String username;
     private String email;
+    private String mbti;
     private Date regDate;
     private Date updateDate;
 
@@ -29,6 +30,7 @@ public class MemberDTO {
         return MemberDTO.builder()
                 .username(m.getUsername())
                 .email(m.getEmail())
+                .mbti(m.getMbti())
                 .regDate(m.getRegDate())
                 .updateDate(m.getUpdateDate())
                 .authList(m.getAuthList().stream().map(a->a.getAuth()).toList())
@@ -38,6 +40,7 @@ public class MemberDTO {
         return MemberVO.builder()
                 .username(username)
                 .email(email)
+                .mbti(mbti)
                 .regDate(regDate)
                 .updateDate(updateDate)
                 .build();
