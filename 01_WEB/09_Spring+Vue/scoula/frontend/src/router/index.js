@@ -5,6 +5,7 @@ import boardRotes from './board';
 import travelRoutes from './travel';
 import galleryRoutes from './gallery';
 import aaaRoutes from './aaa';
+import weatherRoutes from './weather';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,7 @@ const router = createRouter({
     ...travelRoutes,
     ...galleryRoutes,
     ...aaaRoutes,
+    ...weatherRoutes,
   ],
 });
 export default router;
