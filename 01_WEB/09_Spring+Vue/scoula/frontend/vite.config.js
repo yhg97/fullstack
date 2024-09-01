@@ -20,6 +20,6 @@ export default defineConfig({
   },
   build: {
     outDir:
-      'C:/Users/student/Desktop/stdy/fullstack/01_WEB/09_Spring+Vue/scoula/backend/apiServer-master/src/main/webapp/resources',
+      'C:/Users/유건희/Desktop/homesty/fullstack/01_WEB/09_Spring+Vue/scoula/backend/apiServer-master/src/main/webapp/resources',
   },
 });
