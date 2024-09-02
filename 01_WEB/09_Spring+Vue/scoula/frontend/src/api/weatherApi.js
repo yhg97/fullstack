@@ -13,7 +13,11 @@ export default {
       const response = await axios.get(`${BASE_URL}/${city}`, { headers });
       return response.data; // API에서 받은 데이터를 반환
     } catch (error) {
+<<<<<<< HEAD
       console.error('Error fetching weather data:', error);
+=======
+      console.error("Error fetching weather data:", error);
+>>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
       throw error;
     }
   },

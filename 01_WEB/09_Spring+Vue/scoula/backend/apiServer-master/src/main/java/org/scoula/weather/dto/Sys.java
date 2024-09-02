@@ -1,5 +1,6 @@
 package org.scoula.weather.dto;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Sys{
@@ -38,4 +39,15 @@ public class Sys{
 	public int getType(){
 		return type;
 	}
+=======
+import lombok.Data;
+
+@Data
+public class Sys{
+    private String country;
+    private int sunrise;
+    private int sunset;
+    private int id;
+    private int type;
+>>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
 }

@@ -1,5 +1,6 @@
 package org.scoula.weather.dto;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Wind{
@@ -17,4 +18,13 @@ public class Wind{
 	public double getSpeed(){
 		return speed;
 	}
+=======
+import lombok.Data;
+
+@Data
+public class Wind{
+    private int deg;
+    private double speed;
+    private double gust;
+>>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
 }

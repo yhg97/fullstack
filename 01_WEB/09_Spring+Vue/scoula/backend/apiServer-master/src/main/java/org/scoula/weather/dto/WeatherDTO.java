@@ -1,6 +1,7 @@
 package org.scoula.weather.dto;
 
 import java.util.List;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class WeatherDTO{
@@ -95,4 +96,23 @@ public class WeatherDTO{
 	public Wind getWind(){
 		return wind;
 	}
+=======
+import lombok.Data;
+
+@Data
+public class WeatherDTO{
+    private int visibility;
+    private int timezone;
+    private Main main;
+    private Clouds clouds;
+    private Sys sys;
+    private int dt;
+    private Coord coord;
+    private List<WeatherItem> weather;
+    private String name;
+    private int cod;
+    private int id;
+    private String base;
+    private Wind wind;
+>>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
 }

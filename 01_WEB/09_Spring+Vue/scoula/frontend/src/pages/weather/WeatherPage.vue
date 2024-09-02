@@ -13,7 +13,11 @@ onMounted(async () => {
     console.log(response); // API 응답 데이터를 콘솔에 출력하여 확인합니다.
     weather.value = response.weather; // 응답 데이터의 weather 객체에 접근
   } catch (err) {
+<<<<<<< HEAD
     error.value = '날씨 데이터를 가져오는 중 오류가 발생했습니다.';
+=======
+    error.value = "날씨 데이터를 가져오는 중 오류가 발생했습니다.";
+>>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
     console.error(err);
   }
 });
@@ -35,9 +39,13 @@ onMounted(async () => {
     <div v-if="weather">
       <p>도시: {{ weather.name }}</p>
       <p v-if="weather.main">현재 온도: {{ weather.main.temp }}°C</p>
+<<<<<<< HEAD
       <p v-if="weather.weather && weather.weather[0]">
         날씨 설명: {{ weather.weather[0].description }}
       </p>
+=======
+      <p v-if="weather.weather && weather.weather[0]">날씨 설명: {{ weather.weather[0].description }}</p>
+>>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
       <p v-if="weather.wind">바람 속도: {{ weather.wind.speed }} m/s</p>
       <!-- 추가로 표시하고 싶은 다른 데이터가 있다면 여기에 추가 -->
     </div>

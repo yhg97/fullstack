@@ -1,5 +1,6 @@
 package org.scoula.weather.dto;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class WeatherItem{
@@ -31,4 +32,14 @@ public class WeatherItem{
 	public int getId(){
 		return id;
 	}
+=======
+import lombok.Data;
+
+@Data
+public class WeatherItem{
+    private String icon;
+    private String description;
+    private String main;
+    private int id;
+>>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
 }

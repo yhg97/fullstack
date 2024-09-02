@@ -1,5 +1,6 @@
 package org.scoula.weather.dto;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Main{
@@ -59,4 +60,18 @@ public class Main{
 	public double getTempMax(){
 		return tempMax;
 	}
+=======
+import lombok.Data;
+
+@Data
+public class Main{
+    private double temp;
+    private double tempMin;
+    private int grndLevel;
+    private int humidity;
+    private int pressure;
+    private int seaLevel;
+    private double feelsLike;
+    private double tempMax;
+>>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
 }
