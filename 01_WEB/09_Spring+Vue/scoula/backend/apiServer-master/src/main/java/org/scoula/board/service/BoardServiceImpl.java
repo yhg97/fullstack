@@ -20,88 +20,64 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
-
     private final static String BASE_DIR = "c:/upload/board";
-
-
-    //    @Autowired
-    final private BoardMapper mapper;
-
+    private final BoardMapper mapper;
     @Override
     public List<BoardDTO> getList() {
         log.info("getList..........");
-
-        List<BoardDTO> boardDTOList = mapper.getList().stream() // BoardVO의 스트림
-                .map(BoardDTO::of) // BoardDTO의 스트림
-                .toList(); // List<BoardDTO> 변환
-
-        return boardDTOList;
-
-//        return mapper.getList().stream() // BoardVO의 스트림
-//                .map(BoardDTO::of) // BoardDTO의 스트림
-//                .toList(); // List<BoardDTO> 변환
+        return mapper.getList().stream()
+                .map(BoardDTO::of)
+                .toList();
     }
-
     @Override
-    public BoardDTO get(Long no) { // no=44
+    public BoardDTO get(Long no) {
         log.info("get......" + no);
-
-        BoardVO boardVO = mapper.get(no);
-        BoardDTO board = BoardDTO.of(boardVO); // BoardVO no=44
-
-//        BoardDTO board2 = BoardDTO.of(mapper.get(no)); // BoardVO no=44
-
-//        return board;
-
+        BoardDTO board = BoardDTO.of(mapper.get(no));
+        log.info("========================" + board);
         return Optional.ofNullable(board)
-                .orElseThrow(NoSuchElementException::new); //
+                .orElseThrow(NoSuchElementException::new);
     }
 
-//    @Override
-//    public BoardDTO create(BoardDTO board) {
-//        mapper.create(board.toVo());
-//        log.info("board.toVo():" + board.getNo());
-//        return board;
-//    }
-
-    // 2개 이상의 insert 문이 실행될 수 있으므로 트랜잭션 처리 필요
-    // RuntimeException인 경우만 자동 rollback.
-    @Transactional
-    @Override
-    public BoardDTO create(BoardDTO board) {
-        log.info("create......" + board);
-        BoardVO boardVO = board.toVo();
-        mapper.create(boardVO); // no == 47
-
-        // 파일 업로드 처리
-        List<MultipartFile> files = board.getFiles();
-        if (files != null && !files.isEmpty()) { // 첨부 파일이 있는 경우
-            upload(boardVO.getNo(), files);
-        }
-
-        return get(boardVO.getNo());
-
-    }
-
-    private void upload(Long bno, List<MultipartFile> files) { // 47, files
-        for (MultipartFile part : files) {
-            if (part.isEmpty()) continue;
+    private void upload(Long bno, List<MultipartFile> files) {
+        for(MultipartFile part: files) {
+            if(part.isEmpty()) continue;
             try {
                 String uploadPath = UploadFiles.upload(BASE_DIR, part);
                 BoardAttachmentVO attach = BoardAttachmentVO.of(part, bno, uploadPath);
                 mapper.createAttachment(attach);
             } catch (IOException e) {
-                throw new RuntimeException(e); // @Transactional에서 감지, 자동 rollback
+                throw new RuntimeException(e);
+//log.error(e.getMessage());
             }
         }
     }
 
+    @Transactional // 2개 이상의 insert 문이 실행될 수 있으므로 트랜잭션 처리 필요
+    @Override
+    public BoardDTO create(BoardDTO board) {
+        log.info("create......" + board);
+        BoardVO boardVO= board.toVo();
+        mapper.create(boardVO);
+// 파일 업로드 처리
+        List<MultipartFile> files = board.getFiles();
+        if(files != null && !files.isEmpty()) {
+            upload(boardVO.getNo(), files);
+        }
+        return get(boardVO.getNo());
+    }
 
     @Override
     public BoardDTO update(BoardDTO board) {
-        log.info("update......" + board);
-        mapper.update(board.toVo());
-//        return mapper.update(board.toVo()) == 1;
+        log.info("update...... " + board);
+        BoardVO boardVO = board.toVo();
+        log.info("update...... " + boardVO);
+        mapper.update
+                (boardVO);
+// 파일 업로드 처리
+        List<MultipartFile> files = board.getFiles();
+        if(files != null && !files.isEmpty()) {
+            upload(board.getNo(), files);
+        }
         return get(board.getNo());
     }
 
@@ -109,20 +85,13 @@ public class BoardServiceImpl implements BoardService {
     public BoardDTO delete(Long no) {
         log.info("delete...." + no);
         BoardDTO board = get(no);
-
         mapper.delete(no);
         return board;
-
-//        return mapper.delete(no) == 1;
     }
-
-    // 첨부파일 한 개 얻기
     @Override
     public BoardAttachmentVO getAttachment(Long no) {
         return mapper.getAttachment(no);
     }
-
-    // 첨부파일 삭제
     @Override
     public boolean deleteAttachment(Long no) {
         return mapper.deleteAttachment(no) == 1;

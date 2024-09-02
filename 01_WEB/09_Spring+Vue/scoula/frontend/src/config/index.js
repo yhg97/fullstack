@@ -23,6 +23,11 @@ export default {
       url: '/aaa/list',
       icon: 'fa-regular fa-images',
     },
+    {
+      title: '날씨',
+      url: '/weather',
+      icon: 'fa-regular fa-images',
+    },
   ],
   accoutMenus: {
     // 인증 관련 메뉴 정보

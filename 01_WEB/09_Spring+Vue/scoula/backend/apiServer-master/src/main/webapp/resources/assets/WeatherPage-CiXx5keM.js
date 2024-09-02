@@ -1,0 +1,1 @@
+import{b as o,o as n,d as c,e,t as l,p,q as i,l as u}from"./index-B3bZLvt3.js";const _=e("h1",null,"날씨",-1),m={__name:"WeatherPage",setup(d){const a=o(null),t=async()=>(await u.get("/api/weather")).data;return(s,r)=>(n(),c("body",null,[_,e("div",p(i(t)),[e("div",null,l(a.value.main.temp),1)],16)]))}};export{m as default};

@@ -1,0 +1,1 @@
+import{b as s,o as t,d as a,e as o,t as n,f as r}from"./index-63IK8fsi.js";const l=o("h1",null,"날씨",-1),c={key:0},m={__name:"WeatherPage",setup(_){const e=s(null);return(u,d)=>(t(),a("body",null,[l,e.value?(t(),a("div",c,[o("div",null,n(e.value.main.temp),1)])):r("",!0)]))}};export{m as default};
