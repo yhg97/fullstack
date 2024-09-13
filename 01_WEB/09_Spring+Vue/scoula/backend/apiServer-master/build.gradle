@@ -26,10 +26,9 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-<<<<<<< HEAD
-=======
+
     //날씨
->>>>>>> 536511cbff80d178433e6f7c1f1c83848b20a14a
+
     implementation 'org.apache.httpcomponents:httpcore:4.4.15'
     implementation 'org.apache.httpcomponents:httpclient:4.5.13'
 
